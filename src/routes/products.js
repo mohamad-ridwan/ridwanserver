@@ -5,11 +5,11 @@ const router = express.Router();
 
 const productsController = require('../controllers/products');
 
-// Create -> POST
+// Create -> POST : http://localhost:4000/api/cards/product
 router.post('/product', productsController.createProduct);
 
 
-// READ -> GET 
+// Create -> GET : http://localhost:4000/api/cards/products
 router.get('/products', productsController.getAllProducts);
 
 

@@ -5,6 +5,6 @@ const server = express();
 // Call Router EndPoint
 const productRoutes = require('./src/routes/products');
 
-server.use('/', productRoutes);
+server.use('/api/cards', productRoutes);
 
 server.listen(4000);
