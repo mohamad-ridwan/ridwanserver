@@ -10,7 +10,7 @@ router.post('/product', productsController.createProduct);
 
 
 // Create -> GET : http://localhost:4000/api/cards/products
-router.get('/products', productsController.getAllProducts);
+router.get('/produk', productsController.getAllProducts);
 
 
 module.exports = router;
