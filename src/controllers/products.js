@@ -6,7 +6,7 @@ exports.createProduct = (req, res, next)=>{
             message: "products success..!!",
             data: {
                 id : 1,
-                name: name,
+                name: "post API success!!!",
             }
         }
     );
@@ -21,32 +21,12 @@ exports.getAllProducts = (req, res, next)=>{
                 {
                     userId: 1,
                     id: 1,
-                    name: "Makaroni Panggang",
+                    tes: "Tes API",
                     price: 10.000,
                     hargaNormal: 20.000,
                     terjual: 90,
                     stock : 200,
-                    labelInfo: "New"
-                },
-                {
-                    userId: 1,
-                    id: 2,
-                    name: "Makaroni Panggang",
-                    price: 10.000,
-                    hargaNormal: 20.000,
-                    terjual: 90,
-                    stock : 200,
-                    labelInfo: "New"
-                },
-                {
-                    userId: 1,
-                    id: 3,
-                    name: "Makaroni Panggang",
-                    price: 10.000,
-                    hargaNormal: 20.000,
-                    terjual: 90,
-                    stock : 200,
-                    labelInfo: "New"
+                    bodyJudul: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Laborum, esse eum? Vero aspernatur impedit soluta expedita eum assumenda doloribus blanditiis."
                 }
             ]
         }
