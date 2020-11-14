@@ -34,7 +34,8 @@ const fileFilter = (req, file, cb)=>{
 }
 
 server.use(bodyParser.json());
-server.use('./images', express.static(path.join(__dirname, 'images')))
+// handling error get images with widdleware
+server.use('/images', express.static(path.join(__dirname, 'images')));
 server.use(multer({storage: fileStorage, fileFilter}).single('image'))
 
 // Allow Access for mode cors Response API
@@ -50,6 +51,7 @@ server.use('/v1/customer', productRoutes);
 // For Endpoint web fetchAPI
 server.use('/v2/blog', blogRoutes);
 
+// handle middleware
 server.use((error, req, res, next)=>{
     const status = error.errorStatus || 500;
     const message = error.message;
