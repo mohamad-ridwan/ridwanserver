@@ -30,7 +30,10 @@ exports.createBlogPost = (req, res, next)=>{
         title: title,
         body: body,
         image: image,
-        author: {uId: 1, name: "Mohamad Ridwan"}
+        author: {
+            uId: 1, 
+            name: "Mohamad Ridwan"
+        }
     })
 
     // Save Posting to database mongo DB
