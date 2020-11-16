@@ -12,7 +12,7 @@ const server = express();
 
 // Call Router EndPoint
 // For API Produk Ebi Store
-const productRoutes = require('./src/routes/products');
+const productRoutes = require('./src/routes/products')
 // For API web fetchAPI
 const blogRoutes = require('./src/routes/blog');
 
@@ -51,7 +51,7 @@ server.use((req, res, next)=>{
 })
 
 // For Endpoint produk Ebi Store
-server.use('/v1/customer', productRoutes);
+server.use('/v1/makaroni', productRoutes)
 // For Endpoint web fetchAPI
 server.use('/v2/blog', blogRoutes);
 

@@ -1,35 +1,65 @@
+const postProduct = require('../models/products');
+
+// POST
 exports.createProduct = (req, res, next)=>{
+    // const image = req.body.image;
+    const label = req.body.label;
     const name = req.body.name;
     const price = req.body.price;
-    res.json(
-        {   
-            message: "products success..!!",
-            data: {
-                id : 1,
-                name: "post API success!!!",
-            }
+    const stock = req.body.stock;
+
+    // create Database Dynamic
+    const Posting = new postProduct({
+        // image: image,
+        label: label,
+        name: name,
+        price: price,
+        stock: stock,
+        author: {
+            uId: 1,
+            name: "Mohamad Ridwan"
         }
-    );
-    next();
+    })
+
+    // Save Posting Product to database mongoDB
+    Posting.save()
+    .then((result)=>{
+        res.status(201).json({
+            message: "Create Product Success",
+            // nama data yg dikirim
+            dataProduct: result
+        })
+    })
+    .catch(err=>{
+        console.log(err)
+    })
 }
 
-exports.getAllProducts = (req, res, next)=>{
-    // get respon type data
-    res.json(
-        {
-            card2: [
-                {
-                    userId: 1,
-                    id: 1,
-                    tes: "Tes API",
-                    price: 10.000,
-                    hargaNormal: 20.000,
-                    terjual: 90,
-                    stock : 200,
-                    bodyJudul: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Laborum, esse eum? Vero aspernatur impedit soluta expedita eum assumenda doloribus blanditiis."
-                }
-            ]
-        }
-    )
-    next();
+// GET with query params with id
+exports.getProduct = (req, res, next)=>{
+    // Create Pagination perPage
+    const currentPage = req.query.page || 1;
+    const perPage = req.query.perPage || 4;
+    let totalItems;
+
+    postProduct.find()
+    .countDocuments()
+    .then(count=>{
+        totalItems = count;
+        return postProduct.find()
+        .skip((parseInt(currentPage) - 1) * parseInt(perPage))
+        .limit(parseInt(perPage));
+    })
+    .then(result=>{
+        res.status(200).json({
+            message: "Data Produk Berhasil Di Panggil",
+            data: result,
+            total_data: totalItems,
+            per_page: parseInt(perPage),
+            current_page: parseInt(currentPage)
+        })
+    })
+    .catch(err=>{
+        next(err)
+    })
 }

@@ -1,16 +1,13 @@
 // import express
-const express = require('express');
-
+const express = require('express')
 const router = express.Router();
 
-const productsController = require('../controllers/products');
+const productController = require('../controllers/products');
 
-// Create -> POST : http://localhost:4000/api/cards/product
-router.post('/product', productsController.createProduct);
+// POST
+router.post('/postproduk', productController.createProduct);
 
+// GET with query params
+router.get('/getproduk', productController.getProduct);
 
-// Create -> GET : http://localhost:4000/api/cards/products
-router.get('/produk', productsController.getAllProducts);
-
-
-module.exports = router;
+module.exports = router
