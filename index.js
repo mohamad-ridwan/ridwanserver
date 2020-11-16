@@ -3,9 +3,13 @@ const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const multer = require('multer');
 const path = require('path');
+const http = require('http')
+const fs = require('fs');
+const connect = require('connect')
 
 // get method express
 const server = express();
+
 // Call Router EndPoint
 // For API Produk Ebi Store
 const productRoutes = require('./src/routes/products');
@@ -42,7 +46,7 @@ server.use(multer({storage: fileStorage, fileFilter}).single('image'))
 server.use((req, res, next)=>{
     res.setHeader('Access-Control-Allow-Origin', '*');
     res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, PATCH, DELETE, OPTIONS');
-    res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization')
+    res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization', 'application/json')
     next();
 })
 
@@ -61,7 +65,7 @@ server.use((error, req, res, next)=>{
 
 mongoose.connect('mongodb+srv://ridwan:ugELM2oeKdlMmVR9@cluster0.mtciq.mongodb.net/blog?retryWrites=true&w=majority')
 .then(()=>{
-    server.listen(4000, ()=> console.log('Connection Success!!'));
+    server.listen(62542, ()=> console.log('Connection Success!!'));
 })
 .catch(err => console.log(err));
 
