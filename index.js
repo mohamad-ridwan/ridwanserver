@@ -13,6 +13,12 @@ const server = express();
 // Call Router EndPoint
 // For API Produk Ebi Store
 const productRoutes = require('./src/routes/products')
+// For API produk 5rb
+const limaRibuRoutes = require('./src/routes/limaribu')
+// For API Produk 10rb
+const sepuluhRibuRoutes = require('./src/routes/sepuluhribu')
+// For API produk 15RB
+const limaBelasRibuRoutes = require('./src/routes/limabelasribu')
 // For API web fetchAPI
 const blogRoutes = require('./src/routes/blog');
 
@@ -52,8 +58,14 @@ server.use((req, res, next)=>{
 
 // For Endpoint produk Ebi Store
 server.use('/v1/makaroni', productRoutes)
+// For Endpoint 5RB
+server.use('/v2/makaroni', limaRibuRoutes)
+// For Endpoint 10RB
+server.use('/v3/makaroni', sepuluhRibuRoutes)
+// For Endpoint 15RB
+server.use('/v4/makaroni', limaBelasRibuRoutes)
 // For Endpoint web fetchAPI
-server.use('/v2/blog', blogRoutes);
+server.use('/v5/blog', blogRoutes);
 
 // handle middleware
 server.use((error, req, res, next)=>{

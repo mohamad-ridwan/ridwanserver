@@ -2,25 +2,20 @@ const mongoose = require('mongoose');
 
 const Schema = mongoose.Schema;
 
-// For Semua Harga
 const postProduct = new Schema({
-    // image: {
-    //     type: String,
-    //     required: true
-    // },
-    label:{
+    label: {
         type: String,
         required: true
     },
-    name:{
+    name: {
         type: String,
-        required: true,
+        required: true
     },
-    price:{
+    price: {
         type: String,
-        required: true,
+        required: true
     },
-    stock: {
+    stock:{
         type: String,
         required: true
     },
@@ -32,4 +27,4 @@ const postProduct = new Schema({
     timestamps: true
 })
 
-module.exports = mongoose.model('dataProduk', postProduct)
+module.exports = mongoose.model('makaronilimabelasribu', postProduct)
