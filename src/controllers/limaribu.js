@@ -63,6 +63,7 @@ exports.getLimaRibu = (req, res, next)=>{
     .catch(err=>{
         next(err)
     })
+<<<<<<< HEAD
 }
 
 // GET with params ID
@@ -84,4 +85,6 @@ exports.getLimaRibuById = (req, res, next)=>{
     .catch(err=>{
         next(err)
     })
+=======
+>>>>>>> 488c3368a127c628e8a25f28cd56726f4be9cbdf
 }
