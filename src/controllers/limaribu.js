@@ -2,7 +2,7 @@ const postProduct = require('../models/limaribu')
 
 // For 5RB
 // POST
-exports.createLimaRibu = (req, res, next)=>{
+exports.createLimaRibu = (req, res, next) => {
     // const image = req.body.image;
     const label = req.body.label;
     const name = req.body.name;
@@ -24,67 +24,64 @@ exports.createLimaRibu = (req, res, next)=>{
 
     // Save Posting Product to database mongoDB
     PostingLimaRibu.save()
-    .then((result)=>{
-        res.status(201).json({
-            message: "Makaroni 5Rb berhasil di tambahkan!!",
-            // nama data yg dikirim
-            makaroniLimaRibu: result
+        .then((result) => {
+            res.status(201).json({
+                message: "Makaroni 5Rb berhasil di tambahkan!!",
+                // nama data yg dikirim
+                makaroniLimaRibu: result
+            })
         })
-    })
-    .catch(err=>{
-        console.log(err)
-    })
+        .catch(err => {
+            console.log(err)
+        })
 }
 
 // GET with query params ID
-exports.getLimaRibu = (req, res, next)=>{
+exports.getLimaRibu = (req, res, next) => {
     // Create Pagination
     const currentPage = req.query.page || 1;
     const perPage = req.query.perPage || 4;
     let totalItems;
 
     postProduct.find()
-    .countDocuments()
-    .then(count=>{
-        totalItems = count;
-        return postProduct.find()
-        .skip((parseInt(currentPage) - 1) * parseInt(perPage))
-        .limit(parseInt(perPage))
-    })
-    .then(result=>{
-        res.status(200).json({
-            message : "makaroni 5RB berhasil di dapatkan",
-            dataLimaRibu : result,
-            total_data : totalItems,
-            per_page : parseInt(perPage),
-            current_page : parseInt(currentPage)
+        .countDocuments()
+        .then(count => {
+            totalItems = count;
+            return postProduct.find()
+                .skip((parseInt(currentPage) - 1) * parseInt(perPage))
+                .limit(parseInt(perPage))
         })
-    })
-    .catch(err=>{
-        next(err)
-    })
-<<<<<<< HEAD
+        .then(result => {
+            res.status(200).json({
+                message: "makaroni 5RB berhasil di dapatkan",
+                dataLimaRibu: result,
+                total_data: totalItems,
+                per_page: parseInt(perPage),
+                current_page: parseInt(currentPage)
+            })
+        })
+        .catch(err => {
+            next(err)
+        })
 }
 
 // GET with params ID
-exports.getLimaRibuById = (req, res, next)=>{
+exports.getLimaRibuById = (req, res, next) => {
     const getId = req.params.getId
     postProduct.findById(getId)
-    .then(result=>{
-        // Handling kesalahan pemanggilan ID
-        if(!result){
-            const error = new Error('data lima ribu tidak ada!!');
-            error.errorStatus = 404;
-            throw error;
-        }
-        res.status(200).json({
-            message : "data berhasil di dapatkan!!",
-            data: result
+        .then(result => {
+            // Handling kesalahan pemanggilan ID
+            if (!result) {
+                const error = new Error('data lima ribu tidak ada!!');
+                error.errorStatus = 404;
+                throw error;
+            }
+            res.status(200).json({
+                message: "data berhasil di dapatkan!!",
+                data: result
+            })
         })
-    })
-    .catch(err=>{
-        next(err)
-    })
-=======
->>>>>>> 488c3368a127c628e8a25f28cd56726f4be9cbdf
+        .catch(err => {
+            next(err)
+        })
 }
