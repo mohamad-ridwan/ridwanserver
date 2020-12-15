@@ -35,7 +35,26 @@ exports.getData = (req, res, next) => {
             res.status(200).json({
                 message: "Data Berhasil Di dapatkan!",
                 data: result,
-                total_data: totalItems
+                total_data: totalItems,
+            })
+        })
+        .catch(err => {
+            next(err)
+        })
+}
+
+exports.getDataById = (req, res, next) => {
+    const id = req.params.id
+    dataMenu.findById(id)
+        .then(result => {
+            if (!result) {
+                const error = new Error('data menu tidak di temukan!');
+                error.errorStatus = 404;
+                throw error;
+            }
+            res.status(200).json({
+                message: "Data menu berhasil di dapatkan!",
+                data: result
             })
         })
         .catch(err => {

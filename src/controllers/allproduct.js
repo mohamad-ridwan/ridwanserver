@@ -9,21 +9,19 @@ exports.postAll = (req, res, next) => {
         throw err;
     }
 
-    const label = req.body.label;
     const name = req.body.name;
     const price = req.body.price;
     const stock = req.body.stock;
     const deskripsi = req.body.deskripsi;
-    const komposisi = req.body.komposisi;
+    const pathName = req.body.pathName
     const image = req.file.path;
 
     const PostData = new Schema({
-        label: label,
         name: name,
         price: price,
         stock: stock,
         deskripsi: deskripsi,
-        komposisi: komposisi,
+        pathName: pathName,
         image: image,
     })
 
@@ -42,7 +40,7 @@ exports.postAll = (req, res, next) => {
 // GET with query params with id
 exports.getAll = (req, res, next) => {
     const currentPage = req.query.page || 1;
-    const perPage = req.query.perPage || 4;
+    const perPage = req.query.perPage || 8;
     let totalItems;
 
     Schema.find()

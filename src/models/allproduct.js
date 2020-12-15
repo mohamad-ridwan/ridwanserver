@@ -2,10 +2,6 @@ const mongoose = require('mongoose')
 const Schema = mongoose.Schema;
 
 const allData = new Schema({
-    label : {
-        type: String,
-        required : true,
-    },
     name: {
         type: String,
         required: true
@@ -14,7 +10,7 @@ const allData = new Schema({
         type: String,
         required: true,
     },
-    stock : {
+    stock: {
         type: String,
         required: true
     },
@@ -22,7 +18,7 @@ const allData = new Schema({
         type: String,
         required: true
     },
-    komposisi: {
+    pathName: {
         type: String,
         required: true
     },
@@ -31,7 +27,7 @@ const allData = new Schema({
         required: true
     }
 }, {
-    timestamps : true
+    timestamps: true
 })
 
 module.exports = mongoose.model('alldata', allData)

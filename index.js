@@ -30,6 +30,10 @@ const keranjangRoutes = require('./src/routes/keranjang')
 const registerRoutes = require('./src/routes/register')
 // For Menu
 const menuRoutes = require('./src/routes/menu')
+// For Nomer hp User
+const nomerHpRoutes = require('./src/routes/nomerhp')
+// For input data
+const inputDataRoutes = require('./src/routes/inputdata')
 // For API web fetchAPI
 const blogRoutes = require('./src/routes/blog');
 
@@ -85,6 +89,10 @@ server.use('/v8/makaroni', allProductRoutes)
 server.use('/v9/register', registerRoutes)
 // For Menu
 server.use('/v10/menu', menuRoutes)
+// For nomer hp user
+server.use('/v11/nomerhpuser', nomerHpRoutes)
+// For input data
+server.use('/v12/inputdata', inputDataRoutes)
 // For Endpoint web fetchAPI
 server.use('/v9/blog', blogRoutes);
 
