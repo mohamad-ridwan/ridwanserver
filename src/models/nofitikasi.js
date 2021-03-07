@@ -1,24 +1,20 @@
 const mongoose = require('mongoose')
-const Schema = mongoose.Schema;
+const Schema = mongoose.Schema
 
-const dataKeranjang = new Schema({
-    idUser: {
+const notifikasi = new Schema({
+    idRoom: {
         type: String,
-        required: true,
+        required: true
     },
-    idProduct: {
+    idUser: {
         type: String,
         required: true
     },
     name: {
         type: String,
-        required: true,
-    },
-    price: {
-        type: String,
         required: true
     },
-    image: {
+    email: {
         type: String,
         required: true
     }
@@ -26,4 +22,4 @@ const dataKeranjang = new Schema({
     timestamps: true
 })
 
-module.exports = mongoose.model('datakeranjang', dataKeranjang)
+module.exports = mongoose.model('notifikasi', notifikasi)

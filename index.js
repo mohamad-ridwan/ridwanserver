@@ -34,8 +34,22 @@ const menuRoutes = require('./src/routes/menu')
 const nomerHpRoutes = require('./src/routes/nomerhp')
 // For input data
 const inputDataRoutes = require('./src/routes/inputdata')
+// For signup
+const signupRoutes = require('./src/routes/signup')
 // For API web fetchAPI
 const blogRoutes = require('./src/routes/blog');
+// For webchat
+const webchatRoutes = require('./src/routes/webchat')
+// For chatting
+const chattingRoutes = require('./src/routes/chatting')
+// For join group webchat
+const joinGroupRoutes = require('./src/routes/signingroup')
+// For chatting user
+const chattinguserRoutes = require('./src/routes/chattinguser')
+// END TO END
+const endtoendRoutes = require('./src/routes/endtoend')
+// STATUS
+const statusRoutes = require('./src/routes/status')
 
 const fileStorage = multer.diskStorage({
     destination: (req, file, cb) => {
@@ -93,6 +107,20 @@ server.use('/v10/menu', menuRoutes)
 server.use('/v11/nomerhpuser', nomerHpRoutes)
 // For input data
 server.use('/v12/inputdata', inputDataRoutes)
+// For Sign up
+server.use('/v13/signup', signupRoutes)
+// For Web chat
+server.use('/v14/webchat', webchatRoutes)
+// For join group webchat
+server.use('/v15/joingroup', joinGroupRoutes)
+// For chatting
+server.use('/v16/chatting', chattingRoutes)
+// For chatting user
+server.use('/v17/chattinguser', chattinguserRoutes)
+// For endtoend
+server.use('/v18/endtoend', endtoendRoutes)
+// For status
+server.use('/v19/status', statusRoutes)
 // For Endpoint web fetchAPI
 server.use('/v9/blog', blogRoutes);
 
