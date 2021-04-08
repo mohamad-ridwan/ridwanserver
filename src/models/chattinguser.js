@@ -6,6 +6,14 @@ const chattingUser = new Schema({
         type: String,
         required: true
     },
+    idLegibleReport: {
+        type: String,
+        required: true
+    },
+    legibleReport: {
+        type: String,
+        required: true
+    },
     idUser1: {
         type: String,
         required: true
@@ -30,11 +38,47 @@ const chattingUser = new Schema({
         type: String,
         required: true
     },
+    _idCurrentMessage: {
+        type: String,
+        required: true
+    },
+    nameCurrentMessage: {
+        type: String,
+        required: true
+    },
     currentMessage: {
         type: String,
         required: true
     },
     timeSend: {
+        type: String,
+        required: true
+    },
+    idUser1Notif: {
+        type: String,
+        required: true
+    },
+    idUser2Notif: {
+        type: String,
+        required: true
+    },
+    totalNotifUser1: {
+        type: String,
+        required: true
+    },
+    totalNotifUser2: {
+        type: String,
+        required: true
+    },
+    dateLastMessage: {
+        type: String,
+        required: true
+    },
+    timeUpdate: {
+        type: String,
+        required: true
+    },
+    timeExpired: {
         type: String,
         required: true
     }

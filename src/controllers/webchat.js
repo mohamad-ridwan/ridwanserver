@@ -1,6 +1,5 @@
 const Schema = require('../models/webchat')
 
-
 // POST
 exports.post = (req, res, next) => {
     const googleId = req.body.googleId
@@ -10,6 +9,8 @@ exports.post = (req, res, next) => {
     const familyName = req.body.familyName
     const imageUrl = req.body.imageUrl
     const infoOnline = req.body.infoOnline
+    const dateLastOnline = req.body.dateLastOnline
+    const timeLastOnline = req.body.timeLastOnline
     const bio = req.body.bio
 
     const postSignup = new Schema({
@@ -20,6 +21,8 @@ exports.post = (req, res, next) => {
         familyName: familyName,
         imageUrl: imageUrl,
         infoOnline: infoOnline,
+        dateLastOnline: dateLastOnline,
+        timeLastOnline: timeLastOnline,
         bio: bio
     })
 
@@ -107,6 +110,8 @@ exports.signin = (req, res) => {
 // PUT
 exports.putId = (req, res, next) => {
     const infoOnline = req.body.infoOnline
+    const dateLastOnline = req.body.dateLastOnline
+    const timeLastOnline = req.body.timeLastOnline
     const putId = req.params.putId
 
     Schema.findById(putId)
@@ -117,6 +122,8 @@ exports.putId = (req, res, next) => {
                 throw err
             }
 
+            post.timeLastOnline = timeLastOnline
+            post.dateLastOnline = dateLastOnline
             post.infoOnline = infoOnline
             return post.save()
         })

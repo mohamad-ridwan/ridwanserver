@@ -48,6 +48,8 @@ const joinGroupRoutes = require('./src/routes/signingroup')
 const chattinguserRoutes = require('./src/routes/chattinguser')
 // END TO END
 const endtoendRoutes = require('./src/routes/endtoend')
+// For tambah teman
+const addfriendsRoutes = require('./src/routes/addfriends')
 // STATUS
 const statusRoutes = require('./src/routes/status')
 
@@ -121,6 +123,8 @@ server.use('/v17/chattinguser', chattinguserRoutes)
 server.use('/v18/endtoend', endtoendRoutes)
 // For status
 server.use('/v19/status', statusRoutes)
+// For tambah teman
+server.use('/v20/addfriends', addfriendsRoutes)
 // For Endpoint web fetchAPI
 server.use('/v9/blog', blogRoutes);
 

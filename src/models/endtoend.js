@@ -6,6 +6,26 @@ const endtoend = new Schema({
         type: String,
         required: true
     },
+    idUserNotif: {
+        type: String,
+        required: true,
+    },
+    totalNotif: {
+        type: String,
+        required: true
+    },
+    _idUnique: {
+        type: String,
+        required: true
+    },
+    idUserInRoom: {
+        type: String,
+        required: true
+    },
+    legibleReport: {
+        type: String,
+        required: true
+    },
     name: {
         type: String,
         required: true
@@ -23,6 +43,10 @@ const endtoend = new Schema({
         required: true
     },
     date: {
+        type: String,
+        required: true
+    },
+    zonaTime: {
         type: String,
         required: true
     },
@@ -49,7 +73,37 @@ const endtoend = new Schema({
     nameReply: {
         type: String,
         required: true
-    }
+    },
+    dateLastPesan: {
+        type: String,
+        required: true
+    },
+    dataRoom: {
+        idUser1: {
+            type: String,
+            required: true
+        },
+        idUser2: {
+            type: String,
+            required: true
+        },
+        nameUser1: {
+            type: String,
+            required: true
+        },
+        nameUser2: {
+            type: String,
+            required: true
+        },
+        imageUrlUser1: {
+            type: String,
+            required: true
+        },
+        imageUrlUser2: {
+            type: String,
+            required: true
+        },
+    },
 }, {
     timestamps: true
 })

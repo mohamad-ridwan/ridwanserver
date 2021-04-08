@@ -1,49 +1,41 @@
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 
-const signInWebchat = new Schema({
-    googleId: {
+const addfriends = new Schema({
+    idUserSendRequest: {
         type: String,
         required: true
     },
-    email: {
+    idUserAcceptRequest: {
         type: String,
         required: true
     },
-    name: {
+    imageUrlSendRequest: {
         type: String,
         required: true
     },
-    givenName: {
+    nameSendRequest: {
         type: String,
         required: true
     },
-    familyName: {
+    timeUpdateSendRequest: {
         type: String,
         required: true
     },
-    imageUrl: {
+    timeSendRequest: {
         type: String,
         required: true
     },
-    infoOnline: {
+    legibleReport: {
         type: String,
         required: true
     },
-    dateLastOnline: {
+    timeExpired: {
         type: String,
         required: true
     },
-    timeLastOnline: {
-        type: String,
-        required: true
-    },
-    bio: {
-        type: String,
-        required: true
-    }
 }, {
     timestamps: true
 })
 
-module.exports = mongoose.model('signinwebchat', signInWebchat)
+module.exports = mongoose.model('addfriends', addfriends)
